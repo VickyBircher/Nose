@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "my-art-front",
+    "slug": "my-art-front",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "my-art-front"
+}
