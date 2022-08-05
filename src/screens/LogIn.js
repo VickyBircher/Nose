@@ -1,14 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, Image } from "react-native";
+import "../img"
 
-const Ruta = props => {
+const LogIn = props => {
 
 
     return (
       <>
         <View style={styles.container}>
-          <Text>Ejemplo</Text>
-          
+        <ImageBackground source={""} resizeMode="cover" style={styles.image}></ImageBackground>
         </View>
       </>
     );
@@ -21,6 +21,10 @@ const Ruta = props => {
       alignItems: "center",
       justifyContent: "center",
     },
+    imagen:{
+        width: 400,
+        height: 400
+    }
   });
 
-export default Ruta;
+export default LogIn;

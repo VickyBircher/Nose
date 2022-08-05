@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { StyleSheet, Text, View, Button, Image,TextInput,ScrollView } from "react-native";
 import axios from "axios";
-import likesAndDislikes from "./likesAndDislikes";
+//import likesAndDislikes from "./likesAndDislikes";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { withSafeAreaInsets } from "react-native-safe-area-context";
 //https://pbs.twimg.com/media/EtMyremWQAEcl08.jpg
@@ -30,7 +30,7 @@ const obtenerPublicacion = () => {
 //10.148.226.192
 //192.168.0.56
 const obetenerUsuario = () => {
-    axios.get(`http://${IP}:4000/usuarios/2`)
+    axios.get(`http://${IP}:4000/usuarios/3`)
     .then(res => {
       setUsuario(res.data);
     })

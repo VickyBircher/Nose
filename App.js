@@ -5,9 +5,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from "react-native-vector-icons/Ionicons";
-import Home from "./src/components/Home";
-import Ruta from "./src/components/Ruta";
-import NewPublication from "./src/components/NewPublication";
+import Home from "./src/screens/Home";
+import Ruta from "./src/screens/Ruta";
+import NewPublication from "./src/screens/NewPublication";
 //rnfe
 
 
@@ -30,6 +30,7 @@ export default function App() {
         initialRouteName={homeName}
         screenOptions={({ route }) => ({
           tabBarStyle: { height: 80 },
+          headerShown: false,
           tabBarIcon: ({ focused, color , size }) => {
             
             let iconName;
