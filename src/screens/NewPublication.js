@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { StyleSheet, Text, View, Button, Image, StatusBar, TextInput, ScrollView} from "react-native";
+import { Linking, StyleSheet, Text, View, Button, Image, StatusBar, TextInput, ScrollView} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import "../img/ejemplo.jpg";
@@ -49,7 +49,8 @@ const NewPublication= props => {
         </View>
         <View style={styles.container}>
         <ScrollView>
-        <Image style={styles.picturee} source={{uri:"https://pbs.twimg.com/media/EtMyremWQAEcl08.jpg"}}/>
+        <Image style={styles.picturee} source={{uri:"https://pbs.twimg.com/media/EtMyremWQAEcl08.jpg"}}
+         onPress={() => Linking.openURL('http//:localhost:3000/ImgDetail.js')}></Image>
         <View style={styles.linea} >
         <Text style={{marginLeft: 10, color:"#fff"}}>Select a photo ↓</Text>    
         <View style={{flexDirection: "column-reverse"}}>

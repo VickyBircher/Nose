@@ -7,6 +7,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Home from "./src/screens/Home";
 import Ruta from "./src/screens/Ruta";
+import LogIn from "./src/screens/LogIn";
 import NewPublication from "./src/screens/NewPublication";
 //rnfe
 
@@ -23,7 +24,6 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-
     <NavigationContainer> 
       <Tab.Navigator
       style={styles.navbottom}

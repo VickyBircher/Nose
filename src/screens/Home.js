@@ -18,7 +18,7 @@ useEffect(() => {
     obetenerUsuario();
     obetenerLikes();
     obetenerDislikes();
-},[]);
+  },[]);
 
 const obtenerPublicacion = () => {
     axios.get(`http://${IP}:4000/publicaciones/7`)
@@ -62,8 +62,8 @@ console.log("resultado de la petición ",publicacion);
             <View style={styles.cuadrado}>
             <Ionicons name="ellipsis-vertical" color="#fff" size={35} style={{padding:7}}/>
             <View style={{flexDirection:"row"}}>
-            <Ionicons name="funnel" color="#fff" size={35} style={{padding:7, paddingRight:15, marginTop:5 }}/>
-            <Ionicons name="notifications" color="#fff" size={35} style={{padding:7, paddingRight:15, marginTop:5 }}/>
+            <Ionicons name="funnel" color="#fff" size={35} style={{padding:7, paddingRight:"5%", marginTop:5 }}/>
+            <Ionicons name="notifications" color="#fff" size={35} style={{padding:7, paddingRight:"10%", marginTop:5 }}/>
             </View>
            </View>
 
@@ -84,7 +84,8 @@ console.log("resultado de la petición ",publicacion);
           </View>
           </View>
           </View>
-          <Image style={styles.picture} source={{uri: publicacion.image}}/>
+          <Image style={styles.picture} source={{uri: publicacion.image}} 
+           onPress={() => Linking.openURL('http//:localhost:3000/ImgDetail.js')}></Image>
           <View style={styles.likes}>
           <View style={{flexDirection:"row"}}>
           <Ionicons name="heart" color="#fff" size={35}/>
@@ -235,7 +236,7 @@ console.log("resultado de la petición ",publicacion);
     cuadrado:{
       justifyContent: "space-between",
       flexDirection:"row",
-      marginTop: -60,
+      marginTop: "5%",
       width:435,
       zIndex:2,
       height:60,

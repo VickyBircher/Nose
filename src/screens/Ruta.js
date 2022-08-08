@@ -1,69 +1,101 @@
 import React from "react";
-import { StyleSheet, Text, View, Pressable, TextInput, ImageBackground } from "react-native";
-import LogIn from "../img/LogIn.png"
+import { StyleSheet, Text, View, Button, Image, useState, useEffect } from "react-native";
+import axios from "axios";
 import Ionicons from "react-native-vector-icons/Ionicons";
-const Ruta = props => {
+import User from "../img/User.png"
+import { ScrollView } from "react-native-web";
 
+const img = "../img/User.png";
+
+const IP = "192.168.0.56"; 
+const Profile = props => {
 
     return (
       <>
-        <ImageBackground source={require('../img/LogIn.png') } resizeMode="cover" style={styles.image} >
-        <View style={styles.container}>
-        <View style={{paddingBottom: 25}}>
-        <TextInput style={styles.input} placeholder="     User"/>
-        </View>  
-        <View style={{paddingBottom: 25}}>
-        <TextInput style={styles.input} placeholder="     Password"/>
-        </View>
-        <Pressable style={styles.button} title="Log in" borderRadius={30}><Text style={{color: '#733A26', fontWeight: 'bold'}}>Log In</Text></Pressable>
-        <Text style={{color:'white' }} > Log in </Text>
-        
-            <View style={{flexDirection:"row", marginTop: 100}}>
-            <Ionicons name="logo-facebook" color="#fff" size={70} style={{padding:7}}/>
-            <Ionicons name="logo-google" color="#fff" size={70} style={{padding:7, paddingRight:15, marginTop:5 }}/>
-            <Ionicons name="logo-apple" color="#fff" size={70} style={{padding:7, paddingRight:15, marginTop:5 }}/>
+      
+      <View style={styles.cuadrado}>
+            <Ionicons name="arrow-back" color="#fff" size={35} style={{padding:7}}/>
+            <View style={{flexDirection:"row"}}>
+            <Ionicons name="add" color="#fff" size={35} style={{padding:7, paddingRight:"10%", marginTop:5 }}/>
             </View>
+           </View> 
+        <View style={styles.container}>
+        <View style={{flexDirection: "row"}}>
+          <Text style={styles.user}> Caitpivy </Text>
+          <Ionicons name="create" color="#fff" size={35}/>
         </View>
-        </ImageBackground>
+          <Image source={require('../img/User.png') } style={styles.image} />
+          <Text style={styles.occupation}>Designer</Text>
+
+          <View style={{flexDirection: "row", textAlign: "center", marginTop: "5%"}}>
+            <View style={styles.align}>
+              <Text style={styles.numbers}>300</Text>
+              <Text style={styles.numbers2}>Followers</Text>
+            </View>
+            <View>
+            <Text style={styles.numbers}>300</Text>
+            <Text style={styles.numbers2}>Followers</Text>
+            </View>
+            <View>
+            <Text style={styles.numbers}>300</Text>
+            <Text style={styles.numbers2}>Followers</Text>
+            </View>
+
+          </View>
+          <Ionicons name="grid" color="#160F0A" size={35} style={{marginTop: "10%"}}/>        
+          
+
+          
+        </View>
       </>
     );
   }
   
   const styles = StyleSheet.create({
     container: {
-      paddingTop: 350,
       flex: 1,
-      backgroundImage: "#000000",
+      backgroundColor: "#E49C7A",
       alignItems: "center",
       justifyContent: "center",
     },
-    input:{
-      backgroundColor: "#F4F3F1",
-      marginRight:110,
-      borderRadius:14,
-     height:60,
-     width: 300,
-     marginLeft:120,
+    image:{
+        width: "40%",
+        height: "25%"
     },
-    button:{
+    cuadrado:{
+      justifyContent: "space-between",
+      flexDirection:"row",
+      marginTop: "5%",
+      width:435,
+      zIndex:2,
+      height:60,
+      backgroundColor: "#80341E",
+      borderBottomWidth: 7,
+      borderColor: "#9D2932",
 
-      alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    borderRadius: 10,
-    elevation: 3,
-    backgroundColor: '#F6E2D3',
-    height: '8%',
-    width: '35%',
-      
-    },image: {
-      height: '100%',
-      width: '100%',
-      flex: 1,
-      justifyContent: "center"
     },
-    
+    user:{
+      fontSize: 24 ,
+      fontWeight: "bold",
+      color: "#5C2211"
+    },
+    occupation:{
+      color: "white",
+      fontSize:16
+    },
+    numbers:{
+      color: "white",
+      fontWeight: "bold",
+      fontSize:30 
+    },
+    numbers2:{
+      color: "white",
+      fontWeight: "bold",
+      fontSize:18 
+    },
+    align:{
+      textAlign: "center"
+    }
   });
 
-export default Ruta;
+export default Profile;
