@@ -7,7 +7,7 @@ import { ScrollView } from "react-native-web";
 
 const img = "../img/User.png";
 
-const IP = "192.168.0.56"; 
+const IP = "192.168.0.130"; 
 const Profile = props => {
 
     return (

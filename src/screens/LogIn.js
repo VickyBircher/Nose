@@ -5,7 +5,7 @@ import axios from "axios";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 const img = "../img/LogIn.png";
-const IP = "10.152.2.140"; 
+const IP = "192.168.0.130"; 
 
 
 
@@ -13,6 +13,7 @@ const Ruta = props => {
 
 
  const [usuario, setUsuario] = useState({})
+ const [token, setToken] = useState([]);
  const [username, setUsername] = useState('');
  const [contraseña, setContraseña] = useState('');
 
@@ -33,7 +34,8 @@ const login = async (usuario)=>{
       }
     }     
   ).then(response => {
-    console.log('esta es la respuesta: ', response)
+    setToken(response.data);
+    console.log('este es el token: ', token.token)
   },error =>{
     console.log(error)
   });
@@ -41,7 +43,7 @@ const login = async (usuario)=>{
 
 
 
-  console.log('usuario afuera del login', usuario);
+  console.log('usuario afuera del login: ', usuario);
 
     return (
       <>
@@ -60,7 +62,7 @@ const login = async (usuario)=>{
         <Pressable style={styles.button} title="Log in" borderRadius={30}
          onPress={() => setUsuario({
           username: username,
-          constraseña: contraseña
+          password: contraseña
         })}
         ><Text style={{color: '#733A26', fontWeight: 'bold'}}
         >Log In</Text></Pressable>

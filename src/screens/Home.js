@@ -5,7 +5,7 @@ import axios from "axios";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { withSafeAreaInsets } from "react-native-safe-area-context";
 //https://pbs.twimg.com/media/EtMyremWQAEcl08.jpg
-const IP = "10.152.2.140"; 
+const IP = "192.168.0.130"; 
 const Home= (props) => {
 
 const [publicacion, setPublicacion] = useState([]);
