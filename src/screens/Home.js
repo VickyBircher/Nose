@@ -5,7 +5,7 @@ import axios from "axios";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { withSafeAreaInsets } from "react-native-safe-area-context";
 //https://pbs.twimg.com/media/EtMyremWQAEcl08.jpg
-const IP = "192.168.0.56"; 
+const IP = "10.152.2.140"; 
 const Home= (props) => {
 
 const [publicacion, setPublicacion] = useState([]);
@@ -20,41 +20,46 @@ useEffect(() => {
     obetenerDislikes();
   },[]);
 
-const obtenerPublicacion = () => {
+  
+  const obtenerPublicacion = () => {
     axios.get(`http://${IP}:4000/publicaciones/7`)
     .then(res => {
-    setPublicacion(res.data);
-})
-.catch(err => console.log(err));
-}
-//10.148.226.192
-//192.168.0.56
-const obetenerUsuario = () => {
+      setPublicacion(res.data);
+    })
+    .catch(err => console.log(err));
+  }
+  //10.148.226.192
+  //192.168.0.56
+  const obetenerUsuario = () => {
     axios.get(`http://${IP}:4000/usuarios/3`)
     .then(res => {
       setUsuario(res.data);
     })
     .catch(err => console.log(err));
-}
-
-const obetenerLikes = () => {
-  axios.get(`http://${IP}:4000/publicaciones/Likes/2`)
-  .then(res => {
-    setCantLikes(res.data);
-  })
-  .catch(err => console.log(err));
-}
-
-const obetenerDislikes = () => {
-  axios.get(`http://${IP}:4000/publicaciones/Dislikes/7`)
-  .then(res => {
-    setCantDislikes(res.data);
-  })
-  .catch(err => console.log(err));
-}
-
-console.log("resultado de la petición ",publicacion);
-
+  }
+  
+  const obetenerLikes = () => {
+    axios.get(`http://${IP}:4000/publicaciones/Likes/2`)
+    .then(res => {
+      setCantLikes(res.data);
+    })
+    .catch(err => console.log(err));
+  }
+  
+  const obetenerDislikes = () => {
+    axios.get(`http://${IP}:4000/publicaciones/Dislikes/7`)
+    .then(res => {
+      setCantDislikes(res.data);
+    })
+    .catch(err => console.log(err));
+  }
+  
+  console.log("resultado de la petición ",publicacion);
+  console.log(publicacion);
+  console.log(publicacion[1]);
+  console.log('foto de perfil: ', usuario.profilePicture)
+  console.log('usuario ', usuario)
+  
   return (
       <>
 
