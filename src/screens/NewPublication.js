@@ -11,7 +11,7 @@ import axios from "axios";
 
 const NewPublication= props => {
   
-  const IP = "192.168.0.130"; 
+  const IP = "10.152.2.137"; 
   const [name, setName] = useState([]);
   const [url, setUrl] = useState([]);
   const [fkUser, setfkUser] = useState([]);

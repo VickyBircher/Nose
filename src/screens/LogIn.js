@@ -5,7 +5,7 @@ import axios from "axios";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 const img = "../img/LogIn.png";
-const IP = "192.168.0.130"; 
+const IP = "10.152.2.137"; 
 
 
 
@@ -34,8 +34,12 @@ const login = async (usuario)=>{
       }
     }     
   ).then(response => {
-    setToken(response.data);
-    console.log('este es el token: ', token.token)
+    // setToken(response.data);
+    if(response.data.token){
+      console.log('este es el token: ', response.data.token);
+    } else{
+      console.log(response.data);
+    }
   },error =>{
     console.log(error)
   });
@@ -55,7 +59,7 @@ const login = async (usuario)=>{
         />
         </View>  
         <View style={{paddingBottom: 25}}>
-        <TextInput style={styles.input} placeholder="     Password"
+        <TextInput style={styles.input} placeholder="     Password" secureTextEntry={true}
               onChangeText={(value) => setContraseña(value)}
         />
         </View>
@@ -66,8 +70,7 @@ const login = async (usuario)=>{
         })}
         ><Text style={{color: '#733A26', fontWeight: 'bold'}}
         >Log In</Text></Pressable>
-        <Text style={{color:'white' }} > Log in </Text>
-        
+      
             <View style={{flexDirection:"row", marginTop: 100}}>
             <Ionicons name="logo-facebook" color="#fff" size={70} style={{padding:7}}/>
             <Ionicons name="logo-google" color="#fff" size={70} style={{padding:7, paddingRight:15, marginTop:5 }}/>
@@ -93,7 +96,7 @@ const login = async (usuario)=>{
       borderRadius:14,
      height:60,
      width: 300,
-     marginLeft:120,
+     marginLeft: 120,
     },
     button:{
 
