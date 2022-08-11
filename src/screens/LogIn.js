@@ -1,16 +1,19 @@
 import React, {useState, useEffect} from "react";
-import { StyleSheet, Text, View, Pressable, TextInput, ImageBackground } from "react-native";
+import { StyleSheet, Text, View, Pressable, TextInput, ImageBackground, Button } from "react-native";
 import LogIn from "../img/LogIn.png"
 import axios from "axios";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { useNavigation } from "@react-navigation/native";
 
 const img = "../img/LogIn.png";
-const IP = "10.152.2.137"; 
+const IP = "10.144.1.29"; 
 
 
 
-const Ruta = props => {
 
+const Ruta = ()=> {
+
+  const navigation = useNavigation();
 
  const [usuario, setUsuario] = useState({})
  const [token, setToken] = useState([]);
@@ -36,21 +39,25 @@ const login = async (usuario)=>{
   ).then(response => {
     // setToken(response.data);
     if(response.data.token){
-      console.log('este es el token: ', response.data.token);
+      console.log('este es el token: ', response.data.token);  
+      navigation.reset({
+        index: 0,
+        routes: [{'name': 'Nav' }],
+      });
+    
     } else{
       console.log(response.data);
     }
   },error =>{
     console.log(error)
   });
-}
 
+}
 
 
   console.log('usuario afuera del login: ', usuario);
 
     return (
-      <>
         <ImageBackground source={require('../img/LogIn.png') } resizeMode="cover" style={styles.image} >
         <View style={styles.container}>
         <View style={{paddingBottom: 25}}>
@@ -67,10 +74,13 @@ const login = async (usuario)=>{
          onPress={() => setUsuario({
           username: username,
           password: contraseña
-        })}
+        })
+        
+      }
         ><Text style={{color: '#733A26', fontWeight: 'bold'}}
         >Log In</Text></Pressable>
-      
+            
+
             <View style={{flexDirection:"row", marginTop: 100}}>
             <Ionicons name="logo-facebook" color="#fff" size={70} style={{padding:7}}/>
             <Ionicons name="logo-google" color="#fff" size={70} style={{padding:7, paddingRight:15, marginTop:5 }}/>
@@ -78,7 +88,6 @@ const login = async (usuario)=>{
             </View>
         </View>
         </ImageBackground>
-      </>
     );
   }
   

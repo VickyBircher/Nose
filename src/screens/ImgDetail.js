@@ -4,7 +4,7 @@ import axios from "axios";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 
-const IP = "10.152.2.137"; 
+const IP = "10.144.1.29"; 
 const ImgDetail = props => {
   
   // const [publicacion, setPublicacion] = useState([]);
