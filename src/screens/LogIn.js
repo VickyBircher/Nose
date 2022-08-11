@@ -46,6 +46,7 @@ const login = async (usuario)=>{
       });
     
     } else{
+      alert("algo salio mal jajaj"), 
       console.log(response.data);
     }
   },error =>{
