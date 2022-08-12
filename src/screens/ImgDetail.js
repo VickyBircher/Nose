@@ -4,8 +4,8 @@ import axios from "axios";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 
-const IP = "10.144.1.29"; 
-const ImgDetail = props => {
+const IP = "192.168.0.56"; 
+const ImgDetail = ({navigation}) => {
   
   // const [publicacion, setPublicacion] = useState([]);
 
@@ -25,7 +25,9 @@ const ImgDetail = props => {
     return (
       <>
         <View style={{backgroundColor: "#6e0a03" }}>
-        <Ionicons name="arrow-back" color="#fff" size={50} style={{paddingRight:"5%", marginTop:"5%" }}/>
+        <Ionicons name="arrow-back" color="#fff" size={50} style={{paddingRight:"5%", marginTop:"5%" }}
+        onPress={()=>{navigation.navigate('HomeName')}}
+        />
         </View>
         <View style={styles.container}>
         

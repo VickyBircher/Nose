@@ -6,15 +6,17 @@ import Profile from '../screens/Profile';
 import Ionicons from "react-native-vector-icons/Ionicons";
 import NewPublication from '../screens/NewPublication';
 import { NavigationContainer } from "@react-navigation/native";
-
+import ImgDetail from "../screens/ImgDetail";
+import LogIn from '../screens/LogIn';
+import Register from '../screens/Register';
 
 const Navbar = () => {
 
     Tab = createBottomTabNavigator();
-
   return (
+
     <Tab.Navigator
-      style={styles.navbottom}
+    style={styles.navbottom}
         initialRouteName="HomeName"
         screenOptions={({ route }) => ({
           tabBarStyle: { height: 80 },
@@ -46,19 +48,20 @@ const Navbar = () => {
           inactiveTintColor: '#fff',
           activeBackgroundColor: '#9D2932',
           inactiveBackgroundColor: '#9D2932',
-              style: {
-                    backgroundColor: '#CE4418',
-                    paddingBottom: 3,
-                    backgroundImage: "./src/img/navbar.svg",
-                  }
+          style: {
+            backgroundColor: '#CE4418',
+            paddingBottom: 3,
+            backgroundImage: "./src/img/navbar.svg",
+          }
        }}
-      >
+       >
         <Tab.Screen name="NewPub" component={NewPublication} />
         <Tab.Screen name="HomeName" component={Home} />
         <Tab.Screen name="Profile" component={Profile} />
-        
+        <Tab.Screen name='ImgDetail' component={ImgDetail}/>
+        <Tab.Screen name="Login" component={LogIn} />
+        <Tab.Screen name='Register' component={Register}/>
       </Tab.Navigator>
-    
     
   )
 }

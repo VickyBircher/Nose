@@ -1,19 +1,16 @@
 import React, {useState, useEffect} from "react";
-import { StyleSheet, Text, View, Pressable, TextInput, ImageBackground, Button } from "react-native";
+import { StyleSheet, Text, View, Pressable, TextInput, ImageBackground, ScrollView } from "react-native";
 import LogIn from "../img/LogIn.png"
 import axios from "axios";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { useNavigation } from "@react-navigation/native";
 
 const img = "../img/LogIn.png";
 const IP = "192.168.0.56"; 
 
 
 
+const Register = ({navigator}) => {
 
-const LogIn = ({navigation})=> {
-
-  const navigation = useNavigation();
 
  const [usuario, setUsuario] = useState({})
  const [token, setToken] = useState([]);
@@ -39,57 +36,50 @@ const login = async (usuario)=>{
   ).then(response => {
     // setToken(response.data);
     if(response.data.token){
-      console.log('este es el token: ', response.data.token);  
-      navigation.reset({
-        index: 0,
-        routes: [{'name': 'Nav' }],
-      });
-    
+      console.log('este es el token: ', response.data.token);
     } else{
-      alert("algo salio mal jajaj"), 
       console.log(response.data);
     }
   },error =>{
     console.log(error)
   });
-
 }
+
 
 
   console.log('usuario afuera del login: ', usuario);
 
     return (
+      <>
         <ImageBackground source={require('../img/LogIn.png') } resizeMode="cover" style={styles.image} >
+        <ScrollView>
         <View style={styles.container}>
-        <View style={{paddingBottom: 25}}>
         <TextInput style={styles.input} placeholder="     User"
               onChangeText={(value) => setUsername(value)}
         />
-        </View>  
-        <View style={{paddingBottom: 25}}>
         <TextInput style={styles.input} placeholder="     Password" secureTextEntry={true}
-              onChangeText={(value) => setContraseña(value)}
-        />
+              onChangeText={(value) => setContraseña(value)}/>
+
+        <View style={{flexDirection: "row", justifyContent: "space-between"}}>
+            <TextInput style={styles.input2}/>
+            <TextInput style={styles.input2}/>
+        </View>
+        <View>
+        <TextInput style={styles.input} placeholder="     Password" secureTextEntry={true}/>
+        <TextInput style={styles.input} placeholder="     Password" secureTextEntry={true}/>
+        <TextInput style={styles.input} placeholder="     Password" secureTextEntry={true}/>
+        <TextInput style={styles.input} placeholder="     Password" secureTextEntry={true}/>
+        <TextInput style={styles.input} placeholder="     Password" secureTextEntry={true}/>
+        <TextInput style={styles.input} placeholder="     Password" secureTextEntry={true}/>
         </View>
         <Pressable style={styles.button} title="Log in" borderRadius={30}
-         onPress={() => setUsuario({
-          username: username,
-          password: contraseña
-        })
         
-      }
-        ><Text style={{color: '#733A26', fontWeight: 'bold'}}
-        >Log In</Text></Pressable>
-            <Text style={styles.texto} onPress={()=>{navigation.navigate('Register')}}
-            >Registrarse</Text>
-
-            <View style={{flexDirection:"row", marginTop: 100}}>
-            <Ionicons name="logo-facebook" color="#fff" size={70} style={{padding:7}}/>
-            <Ionicons name="logo-google" color="#fff" size={70} style={{padding:7, paddingRight:15, marginTop:5 }}/>
-            <Ionicons name="logo-apple" color="#fff" size={70} style={{padding:7, paddingRight:15, marginTop:5 }}/>
-            </View>
+        ><Text style={{color: '#733A26', fontWeight: 'bold'}}>Log In</Text></Pressable>
         </View>
+        </ScrollView>
+
         </ImageBackground>
+      </>
     );
   }
   
@@ -108,7 +98,15 @@ const login = async (usuario)=>{
      height:60,
      width: 300,
      marginLeft: 120,
+     marginTop: "5%"
     },
+    input2:{
+        backgroundColor: "#F4F3F1",
+        borderRadius:14,
+       height:60,
+       width: "37%",
+       marginTop:"5%"
+    }, 
     button:{
 
       alignItems: 'center',
@@ -118,8 +116,9 @@ const login = async (usuario)=>{
     borderRadius: 10,
     elevation: 3,
     backgroundColor: '#F6E2D3',
-    height: '15%',
-    width: '35%',
+    height: 60,
+    width: 150,
+    marginTop: 20
       
     },image: {
       height: '100%',
@@ -127,12 +126,7 @@ const login = async (usuario)=>{
       flex: 1,
       justifyContent: "center"
     },
-    texto:{
-      color: "white",
-      fontSize: 20
-
-    }
     
   });
 
-export default LogIn;
+export default Register;
